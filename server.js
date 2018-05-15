@@ -63,6 +63,29 @@ app.post('/login', (req, res) => {
     }
 })
 
+// delete route
+app.post('/delete', (req, res) => {
+    let { user, password } = req.body;
+    for (let i = 0; i < database.length; i++ ) {
+        bcrypt.compare(password, database[i].password, (error, result) => {
+            if (error) {
+                res.send(`error in deleting account ${error}`);
+            }
+            if (result) {
+                database.splice(i,1);
+                res.send('deleted');
+            }
+            else {
+                res.status(403).send('no such user to delete');
+            }
+        })
+    }
+})
+
+app.get('/list', (req,res) => {
+    res.send(database);
+})
+
 app.listen(8080, () => {
     console.log('server up on 8080');
 })

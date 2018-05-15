@@ -19,7 +19,7 @@
         <input type="submit" id='signup'/>
     </form>
 
-    <!-- Sign Up Form -->
+    <!-- Login Form -->
     <form action="/login" method="post">
         <h2>Login</h2>
         <label>User</label>
@@ -29,6 +29,24 @@
         <input type='password' name="password" />
 
         <input type="submit" id='login'/>
+    </form>
+
+    <!-- Delete Account -->
+    <form action="/delete" method="post">
+        <h2>Delete Account</h2>
+        <label>User</label>
+        <input type="text" name="user" />
+
+        <label>Password</label>
+        <input type='password' name="password" />
+
+        <input type="submit" id='delete'/>
+    </form>
+
+    <!-- Check Accounts -->
+    <form action="/list" method="get">
+        <h2>List Account</h2>
+        <input type="submit" id='list' value="Get All Accounts"/>
     </form>
 
     <!-- Cancel submit -->
